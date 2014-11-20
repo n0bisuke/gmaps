@@ -1,0 +1,231 @@
+サンプル1結果
+http://i.gyazo.com/0ffd0fb70730b84ca1600ca32fa168c7.png
+
+[code]
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+    <title>gmapsサンプル</title>
+    <style>
+        @charset "utf-8";
+        #map {
+            height: 400px;
+        }
+    </style>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="./gmaps.js"></script>
+    <script>
+        window.onload = function(){
+            var map = new GMaps({
+                div: "#map",
+                lat: 35.710285,
+                lng: 139.77714,
+                zoom: 15,
+            });
+        };
+    </script>
+</head>
+<body>
+<div id="map"></div>
+</body>
+</html>
+[/code]
+
+##サンプル2
+[code]
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>gmapsサンプル</title>
+    <style>
+        @charset "utf-8";
+        #map {
+            height: 400px;
+        }
+    </style>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="./gmaps.js"></script>
+    <script>
+        window.onload = function(){
+            var lat = 35.710285;
+            var lng = 139.77714;
+            var map = new GMaps({
+                div: "#map",
+                lat: lat,
+                lng: lng,
+                zoom: 17
+            });
+
+            map.addMarker({
+                lat: lat,
+                lng: lng,
+                title: "LIG",
+                icon: "http://i.gyazo.com/0f00ed1cff497b7390020f9e64e31674.png",
+                infoWindow: {
+                    content: "<p>LIGは<br/>ココだよ!</p>"
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+<div id="map"></div>
+</body>
+</html>
+[/code]
+
+http://i.gyazo.com/347d76a9d53a2e7820b7291fdff99683.png
+
+
+geocodingというサイトが便利
+http://www.geocoding.jp/?q=東京都台東区東上野２−１８−７
+http://i.gyazo.com/de778dc1a76789342305f12d0ed02eb7.png
+[code]
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>gmaps-test01</title>
+
+    <style>
+        @charset "utf-8";
+
+        /* =================================
+           @DEMO
+        ================================= */
+        #demo {
+            margin: 70px auto;
+            width: 620px;
+        }
+
+        /* =================================
+           @ACCESS
+        ================================= */
+        .access {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
+        }
+
+        /* =================================
+           @MAP
+        ================================= */
+        .map {
+            height: 340px;
+        }
+        .map p {
+            margin: 1px;
+            white-space:nowrap;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="./gmaps.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var map;
+            map = new GMaps({
+                div: "#map01",
+                lat: 35.710285,
+                lng: 139.77714,
+                zoom: 15,
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="demo">
+    <div class="access">
+        <div id="map01" class="map"></div>
+    </div>
+</div>
+</body>
+</html>
+[/code]
+
+[code]
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>gmaps-test01</title>
+
+    <style>
+        @charset "utf-8";
+
+        /* =================================
+           @DEMO
+        ================================= */
+        #demo {
+            margin: 70px auto;
+            width: 620px;
+        }
+
+        /* =================================
+           @ACCESS
+        ================================= */
+        .access {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
+        }
+
+        /* =================================
+           @MAP
+        ================================= */
+        .map {
+            height: 340px;
+        }
+        .map p {
+            margin: 1px;
+            white-space:nowrap;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="./gmaps.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var map;
+            map = new GMaps({
+                div: "#map01",
+                lat: 35.710285,
+                lng: 139.77714,
+                zoom: 15,
+            });
+
+//            map.addMarker({
+//                35.710285,139.77714
+//                lat: 35.694140,
+//                lng: 139.689525,
+//                title: "てんとう虫",
+//                icon: "img/ladybird.png",
+//                infoWindow: {
+//                    content: "<p>てんとう虫 ： 「やほー！」</p>"
+//                }
+//            });
+
+        });
+    </script>
+</head>
+<body>
+<div id="demo">
+    <div class="access">
+        <div id="map01" class="map"></div>
+    </div>
+</div>
+</body>
+</html>
+[/code]
+
+
+gmaps.js http://hpneo.github.io/gmaps/
+
+gmaps.jsで簡単グーグルマップhttp://php-fan.org/gmapsjs.html
